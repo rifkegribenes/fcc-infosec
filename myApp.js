@@ -31,7 +31,7 @@ const helmet = require('helmet');
 
 // Use `helmet.hidePoweredBy()``
 
-
+app.use(helmet.hidePoweredBy({ setTo: 'PHP 4.2.0' }));
 
 /** 3) Mitigate the risk of clickjacking - `helmet.frameguard()` */
 
@@ -46,7 +46,7 @@ const helmet = require('helmet');
 // We don't need our app to be framed, so you should use `helmet.frameguard()`
 // passing to it the configuration object `{action: 'deny'}`
 
- 
+helmet.frameguard({action: 'deny'}); 
 
 /** 4) Mitigate the risk of XSS - `helmet.xssFilter()` */
 
