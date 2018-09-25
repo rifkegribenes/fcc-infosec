@@ -145,7 +145,7 @@ app.use(helmet.dnsPrefetchControl());
 
 // Use helmet.noCache()
 
-
+app.use(helmet.noCache());
 
 /** 10) Content Security Policy - `helmet.contentSecurityPolicy()` */
 
@@ -175,7 +175,7 @@ app.use(helmet.dnsPrefetchControl());
 // in the `"'self'"` keyword, the single quotes are part of the keyword itself, 
 // so it needs to be enclosed in **double quotes** to be working.
 
-
+app.use(helmet.csp({defaultSrc: ["'self'"], scriptSrc: ["trusted-cdn.com", "'self'"]}));
 
 /** TIP: */ 
 
