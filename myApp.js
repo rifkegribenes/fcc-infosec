@@ -82,7 +82,7 @@ app.use(helmet.xssFilter());
 
 // Use `helmet.noSniff()`
 
-
+app.use(helmet.noSniff());
 
 /** 6) Prevent IE from opening *untrusted* HTML - `helmet.ieNoOpen()` */
 
@@ -95,7 +95,7 @@ app.use(helmet.xssFilter());
 
 // Use `helmet.ieNoOpen()`
 
-
+app.use(helmet.ieNoOpen());
 
 /**  7) Ask browsers to access your site via HTTPS only - `helmet.hsts()` */
 
@@ -114,7 +114,7 @@ app.use(helmet.xssFilter());
 // policy we will intercept and restore the header, after inspecting it for testing.
 
 var ninetyDaysInMilliseconds = 90*24*60*60*1000;
-
+app.use(helmet.hsts({maxAge: ninetyDaysInMilliseconds, force: true}));
 
 //**Note**:
 // Configuring HTTPS on a custom website requires the acquisition of a domain,
